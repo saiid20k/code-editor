@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Editor</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <h4 class="navbar-brand" id="title-">HTML Editor</h4>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="feedback.html"> Feedback <span class="sr-only">(current)</span></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+
+    <main>
+
+       <textarea id="codes">
+
+       <!DOCTYPE html>
+       <html>
+       <head>
+         <title>Document</title>
+       </head>
+       <body>
+         
+       </body>
+       </html>
+
+       </textarea>
+       <div id="buttons">
+        <button id="play"> Play Code </button>
+        <button id="remove"> Stop Code </button>
+       </div>
+
+       
+    <div>
+      <p id="title-result"> Result : </p>
+      </div>
+    </main>
+
+    <div id="result"></div>
+      <script>
+        let codes = document.getElementById("codes");
+        let play = document.getElementById("play");
+        let remove = document.getElementById("remove");
+        let result = document.getElementById("result");
+        play.onclick = () =>{
+          result.innerHTML = codes.value;
+          localStorage.setItem("RESULT" , codes.value);
+        };
+        remove.onclick = () =>{
+          result.innerHTML="";
+        };
+        onload = ()=>{
+          codes.value = localStorage.getItem("RESULT");
+          result.innerHTML = codes.value;
+        };
+      </script>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/javascript.js"> </script>
+</body>
+</html>
